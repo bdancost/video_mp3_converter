@@ -1,4 +1,12 @@
 from moviepy.editor import *
+import os
 
-audio = VideoFileClip("Way Much Better.mp4").audio
-audio.write_audiofile("Way Much Better.mp3")
+video_path = "Roar.mp4"
+
+if not os.path.exists(video_path):
+    print(f"Erro: O arquivo '{video_path}' não foi encontrado.")
+else:
+    with VideoFileClip(video_path) as video:
+        audio = video.audio
+        audio.write_audiofile("KatyPerry-Roar.mp3")
+
